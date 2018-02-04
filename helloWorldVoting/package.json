@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "ganache-cli": "^6.0.3",
+    "solc": "^0.4.19",
     "web3": "github:ethereum/web3.js"
   }
 }
