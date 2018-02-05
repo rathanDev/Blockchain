@@ -46,7 +46,7 @@
             web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
         }
 
-        web3.eth.defaultAccount = web3.eth.accounts[0];
+        web3.eth.defaultAccount = web3.eth.accounts[1];
 
         var CoursetroContract = web3.eth.contract([
             {
@@ -101,10 +101,16 @@
                 "payable": false,
                 "stateMutability": "nonpayable",
                 "type": "function"
+            },
+            {
+                "inputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "constructor"
             }
-        ]);
+        ]   );
 
-        var Coursetro = CoursetroContract.at('0x65f700ec022fd5f9fe5996e74e7597e08debfc1b');
+        var Coursetro = CoursetroContract.at('0xddc7ff031746a765511d517eee3c055554852a82');
 
         var instructorEvent = Coursetro.Instructor();
 
