@@ -9,18 +9,25 @@ contract PayableContract {
         client = msg.sender;
     }
 
+    modifier ifClient() {
+        if(msg.sender != client) {
+            throw;
+        }
+        _; //continue
+    }
+
     function depositFunds() payable {
     }
 
-    function withdrawFunds(uint amount) {
+    function withdrawFunds(uint amount) ifClient {
         if (client.send(amount) ) {
             _switch = true;
         } else {
             _switch = false;
         }
     }
-    
-    function getBalance() view returns(uint) {
+
+    function getBalance() ifClient view returns(uint) {
         return this.balance;
     }
     
