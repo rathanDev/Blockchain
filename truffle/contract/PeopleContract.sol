@@ -69,13 +69,19 @@ contract People {
 
     //test
     function setPersons() public {
-        Person memory person;
+        Person storage person = personMap[0xca35b7d915458ef540ade6068dfe2f44e8fa733c];
         person.id = universalId ++;
         person.name = "p1";
-        // person.languages.push(0);
+        person.languages = [Language.TAMIL, Language.ENGLISH];
         person.status = Status.ACTIVE;
-        personMap[0xca35b7d915458ef540ade6068dfe2f44e8fa733c] = person;
         codes.push(0xca35b7d915458ef540ade6068dfe2f44e8fa733c);
+
+        Person storage person2 = personMap[0x14723a09acff6d2a60dcdf7aa4aff308fddc160c];
+        person2.id = universalId ++;
+        person2.name = "p1";
+        person2.languages = [Language.ENGLISH, Language.SINHALA];
+        person2.status = Status.ACTIVE;
+        codes.push(0x14723a09acff6d2a60dcdf7aa4aff308fddc160c);
     }
 
 }
