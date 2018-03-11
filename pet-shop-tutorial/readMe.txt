@@ -42,3 +42,5 @@ contract TestAdoption {
   Adoption adoption = Adoption(DeployedAddresses.Adoption());
 
 }
+
+npm run dev
