@@ -27,10 +27,10 @@ contract Instructors {
 
 
     //test
-    address instructorCode1 = 0xca35b7d915458ef540ade6068dfe2f44e8fa733c;
-    address instructorCode2 = 0x14723a09acff6d2a60dcdf7aa4aff308fddc160c;
+    address instructorCode1 = 0x627306090abab3a6e1400e9345bc60c78a8bef57;
+    address instructorCode2 = 0xf17f52151ebef6c7334fad080c5704d77216b732;
 
-    function setInitialData() {
+    function setInitialData() public {
         setInstrutors();
     }
 
