@@ -5,22 +5,24 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const hre = require("hardhat");
+// console.log("hre", hre)
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
   const unlockTime = currentTimestampInSeconds + 60;
 
   const lockedAmount = hre.ethers.utils.parseEther("0.001");
+  console.log("lockedAmount", lockedAmount)
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  const MyNFT = await hre.ethers.getContractFactory("MyNFT");
+  const myNFT = await MyNFT.deploy();
 
-  await lock.deployed();
+  await myNFT.deployed();
 
   console.log(
     `Lock with ${ethers.utils.formatEther(
       lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
+    )}ETH and unlock timestamp ${unlockTime} deployed to ${myNFT.address}`
   );
 }
 
